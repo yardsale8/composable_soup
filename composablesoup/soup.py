@@ -1,5 +1,7 @@
 from composable import pipeable
 import bs4
+import sys
+import re
 
 DEFAULT_OUTPUT_ENCODING = "utf-8"
 PY3K = (sys.version_info[0] > 2)
