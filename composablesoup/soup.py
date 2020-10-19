@@ -325,24 +325,6 @@ def has_attr(name, tag):
     :return: A bool
     """
     return tag.has_attr(name)
-    
-    
-@pipeable
-def find_parent(tag, name=None, attrs={}, **kwargs):
-    '''Find the closest parent of this PageElement that matches the given
-    criteria.
-    
-    All find_* methods take a common set of arguments. See the online
-    documentation for detailed explanations.
-    
-    :param name: A filter on tag name.
-    :param attrs: A dictionary of filters on attribute values.
-    :kwargs: A dictionary of filters on attribute values.
-    
-    :return: A PageElement.
-    :rtype: bs4.element.Tag | bs4.element.NavigableString
-    '''
-    return tag.find_parent(name, attrs, **kwargs)
 
 
 @pipeable
@@ -461,7 +443,7 @@ def children(tag):
 
     :yield: A sequence of PageElements.
     """
-    return iter(tag.contents)  
+    return tag.contents
 
 
 @pipeable
