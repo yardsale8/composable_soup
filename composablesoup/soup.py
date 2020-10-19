@@ -1,6 +1,12 @@
 from composable import pipeable
 import bs4
 
+DEFAULT_OUTPUT_ENCODING = "utf-8"
+PY3K = (sys.version_info[0] > 2)
+
+nonwhitespace_re = re.compile(r"\S+")
+
+
 @pipeable
 def find(name, soup, attrs={}, recursive=True, text=None, **kwargs):
     """Look in the children of this PageElement and find the first
