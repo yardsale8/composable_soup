@@ -1,0 +1,85 @@
+Using virtualenv: /Users/bn8210wy/.pyenv/versions/anaconda3-5.3.1
+Using version ^0.1.3 for composable
+
+Updating dependencies
+Resolving dependencies...
+
+  Stack trace:
+
+  21  ~/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages/clikit/console_application.py:131 in run
+      status_code = command.handle(parsed_args, io)
+
+  20  ~/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages/clikit/api/command/command.py:120 in handle
+      status_code = self._do_handle(args, io)
+
+  19  ~/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages/clikit/api/command/command.py:171 in _do_handle
+      return getattr(handler, handler_method)(args, io, self)
+
+  18  ~/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages/cleo/commands/command.py:92 in wrap_handle
+      return self.handle()
+
+  17  ~/.local/lib/python3.7/site-packages/poetry/console/commands/add.py:174 in handle
+      status = self._installer.run()
+
+  16  ~/.local/lib/python3.7/site-packages/poetry/installation/installer.py:103 in run
+      return self._do_install(local_repo)
+
+  15  ~/.local/lib/python3.7/site-packages/poetry/installation/installer.py:235 in _do_install
+      ops = solver.solve(use_latest=self._whitelist)
+
+  14  ~/.local/lib/python3.7/site-packages/poetry/puzzle/solver.py:65 in solve
+      packages, depths = self._solve(use_latest=use_latest)
+
+  13  ~/.local/lib/python3.7/site-packages/poetry/puzzle/solver.py:234 in _solve
+      self._package, self._provider, locked=locked, use_latest=use_latest
+
+  12  ~/.local/lib/python3.7/site-packages/poetry/mixology/__init__.py:7 in resolve_version
+      return solver.solve()
+
+  11  ~/.local/lib/python3.7/site-packages/poetry/mixology/version_solver.py:84 in solve
+      next = self._choose_package_version()
+
+  10  ~/.local/lib/python3.7/site-packages/poetry/mixology/version_solver.py:397 in _choose_package_version
+      version = self._provider.complete_package(version)
+
+   9  ~/.local/lib/python3.7/site-packages/poetry/puzzle/provider.py:436 in complete_package
+      repository=package.dependency.source_name,
+
+   8  ~/.local/lib/python3.7/site-packages/poetry/repositories/pool.py:135 in package
+      package = repo.package(name, version, extras=extras)
+
+   7  ~/.local/lib/python3.7/site-packages/poetry/repositories/pypi_repository.py:162 in package
+      return self.get_release_info(name, version).to_package(name=name, extras=extras)
+
+   6  ~/.local/lib/python3.7/site-packages/poetry/repositories/pypi_repository.py:238 in get_release_info
+      cached = self._get_release_info(name, version)
+
+   5  ~/.local/lib/python3.7/site-packages/poetry/repositories/pypi_repository.py:308 in _get_release_info
+      info = self._get_info_from_urls(urls)
+
+   4  ~/.local/lib/python3.7/site-packages/poetry/repositories/pypi_repository.py:423 in _get_info_from_urls
+      return self._get_info_from_sdist(urls["sdist"][0])
+
+   3  ~/.local/lib/python3.7/site-packages/poetry/repositories/pypi_repository.py:451 in _get_info_from_sdist
+      return PackageInfo.from_sdist(filepath)
+
+   2  ~/.local/lib/python3.7/site-packages/poetry/inspection/info.py:556 in from_sdist
+      return cls._from_sdist_file(path=path)
+
+   1  ~/.local/lib/python3.7/site-packages/poetry/inspection/info.py:286 in _from_sdist_file
+      new_info = cls.from_directory(path=sdist_dir)
+
+  AttributeError
+
+  'NoneType' object has no attribute '_source_type'
+
+  at ~/.local/lib/python3.7/site-packages/poetry/inspection/info.py:543 in from_directory
+      539│                         raise
+      540│ 
+      541│                     # we discovered PkgInfo but no requirements were listed
+      542│ 
+    → 543│         info._source_type = "directory"
+      544│         info._source_url = path.as_posix()
+      545│ 
+      546│         return info
+      547│ 
