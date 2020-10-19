@@ -262,18 +262,18 @@ def next_siblings(tag):
     """All PageElements that are siblings of this one but were parsed
     later.
 
-    :yield: A sequence of PageElements.
+    :return: A sequence of PageElements.
     """
-    return tag.next_siblings
+    return list(tag.next_siblings)
 
 
 @pipeable
 def previous_elements(tag):
     """All PageElements that were parsed before this one.
 
-    :yield: A sequence of PageElements.
+    :return: A sequence of PageElements.
     """
-    return tag.previous_elements
+    return list(tag.previous_elements)
 
 
 @pipeable
@@ -281,18 +281,18 @@ def previous_siblings(tag):
     """All PageElements that are siblings of this one but were parsed
     earlier.
 
-    :yield: A sequence of PageElements.
+    :return: A sequence of PageElements.
     """
-    return tag.previous_siblings
+    return list(tag.previous_siblings)
 
 
 @pipeable
 def parents(tag):
     """All PageElements that are parents of this PageElement.
 
-    :yield: A sequence of PageElements.
+    :return: A sequence of PageElements.
     """
-    return tag.parents
+    return list(tag.parents)
 
 
 @pipeable
@@ -441,7 +441,7 @@ def encode_contents(
 def children(tag):
     """Iterate over all direct children of this PageElement.
 
-    :yield: A sequence of PageElements.
+    :return: A sequence of PageElements.
     """
     return tag.contents
 
@@ -451,9 +451,9 @@ def descendants(tag):
     """Iterate over all children of this PageElement in a
     breadth-first sequence.
 
-    :yield: A sequence of PageElements.
+    :return: A sequence of PageElements.
     """
-    return tag.descendants
+    return list(tag.descendants)
 
 
 @pipeable
